@@ -19,5 +19,3 @@ HTML: Estrutura da página.
 CSS: Estilização e layout.
 
 JavaScript: Lógica de adição de nomes e sorteio aleatório.
-
-## Sinta-se à vontade para contribuir! Basta fazer um fork do repositório e abrir um pull request com suas melhorias.
