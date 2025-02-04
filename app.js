@@ -1,7 +1,7 @@
 // O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 
 // Array para armazenar os nomes dos amigos
-let amigos = [];
+let arrayAmigos = [];
 
 // Array para armazenar os nomes já sorteados
 let sorteados = [];
@@ -13,7 +13,7 @@ let estadoAnterior = {
 };
 
 // Função para adicionar um amigo à lista
-function adicionarAmigo() {
+function addAmigo() {
     const input = document.getElementById('amigo');
     let nome = input.value.trim();
 
@@ -23,7 +23,7 @@ function adicionarAmigo() {
     }
 
     nome = capitalizarPrimeiraLetra(nome);
-    amigos.push(nome);
+    arrayAmigos.push(nome);
     atualizarLista();
     input.value = '';
     input.focus();
@@ -39,21 +39,21 @@ function atualizarLista() {
     const lista = document.getElementById('listaAmigos');
     lista.innerHTML = '';
 
-    amigos.forEach((amigo, index) => {
+    arrayAmigos.forEach((amigo, index) => {
         const li = document.createElement('li');
-        li.textContent = amigo + (index < amigos.length - 1 ? ', ' : '');
+        li.textContent = amigo + (index < arrayAmigos.length - 1 ? ', ' : '');
         lista.appendChild(li);
     });
 }
 
 // Função para sortear um amigo secreto
 function sortearAmigo() {
-    if (amigos.length === 0) {
+    if (arrayAmigos.length === 0) {
         alert('A lista de amigos está vazia.');
         return;
     }
 
-    if (sorteados.length === amigos.length) {
+    if (sorteados.length === arrayAmigos.length) {
         alert('Todos os amigos já foram sorteados.');
         return;
     }
@@ -66,8 +66,8 @@ function sortearAmigo() {
     let amigoSorteado;
 
     do {
-        indiceSorteado = Math.floor(Math.random() * amigos.length);
-        amigoSorteado = amigos[indiceSorteado];
+        indiceSorteado = Math.floor(Math.random() * arrayAmigos.length);
+        amigoSorteado = arrayAmigos[indiceSorteado];
     } while (sorteados.includes(amigoSorteado));
 
     sorteados.push(amigoSorteado);
@@ -77,7 +77,7 @@ function sortearAmigo() {
 }
 
 // Função para desfazer o último sorteio
-function desfazerSorteio() {
+function voltarSorteio() {
     if (sorteados.length === 0) {
         alert('Não há sorteio para desfazer.');
         return;
